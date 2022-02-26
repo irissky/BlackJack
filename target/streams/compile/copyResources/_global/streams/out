@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/IT5100A_proj/PlayFrameworkScalaWebSockets/conf/logback.xml,/IT5100A_proj/PlayFrameworkScalaWebSockets/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/IT5100A_proj/PlayFrameworkScalaWebSockets/conf/application.conf,/IT5100A_proj/PlayFrameworkScalaWebSockets/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/IT5100A_proj/PlayFrameworkScalaWebSockets/conf/routes,/IT5100A_proj/PlayFrameworkScalaWebSockets/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/IT5100A_proj/PlayFrameworkScalaWebSockets/conf/messages,/IT5100A_proj/PlayFrameworkScalaWebSockets/target/scala-2.12/classes/messages)[0m
