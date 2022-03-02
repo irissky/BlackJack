@@ -2,25 +2,35 @@
 
 @main("The Game of Twenty-One") {
 
-    <h1 class="text-primary" style="font-size:24px;padding-bottom:1.5em;">The Game of Twenty-One: <small>Hu Yue &amp; Hu Xuan</small></h1>
+    <h1>The Game of Twenty-One</h1>
+    <h5>by Hu Yue &amp; Hu Xuan</h5>
     <h6>IT5100A Final Project</h6>
-    <p>Welcome to the single-user game of 21 (also called Blackjack)!</p>
-    <p>The game starts by dealing out two cards each to the player and dealer. A score of 21 wins the game for the player or dealer.</p>
-    <p>In the event of a tie, the dealer wins. The user shall receive 100 coins at the beginning of the game.He can choose to bet any number of available coins at each hand. Once all the coins are exhausted, the game ends.The user can choose to "Hit" by entering a "H" when prompted. A "S" response would be assumed to be a "Stand".Good Luck!! </p>
-    <h6 class="text-primary"> type in 'hi' to start the game </h2>
-    <!-- this is where the client and server output will be shown/appended -->
-    <h4>Dealer</h4>
-    <div id="message-content-server" style="height:230px;overflow-y:auto !important;background-color:#fff;padding:1em;border-radius:10px;"></div>
-    <h4>Player</h4>
-    <div id="message-content-client" style="height:230px;overflow-y:auto !important;background-color:#fff;padding:1em;border-radius:10px;"></div>
-
-    <form style="padding-top:1.5em;">
-        <div class="form-group">
-            <label for="message-input">Message:</label>
-            <textarea id="message-input" class="form-control" ></textarea>
+    <div id="rules">
+        <p>Welcome to the single-user game of 21 (also called Blackjack)!</p>
+        <p>The game starts by dealing out two cards each to the player and dealer. A score of 21 wins the game for the player or dealer.</p>
+        <p>In the event of a tie, the dealer wins. The user shall receive 100 coins at the beginning of the game.He can choose to bet any number of available coins at each hand. Once all the coins are exhausted, the game ends.The user can choose to "Hit" by entering a "H" when prompted. A "S" response would be assumed to be a "Stand".Good Luck!! </p>
+    </div>
+    <div class="container" id="content-container">
+        <div id="item-1">
+            <img src="@routes.Assets.versioned("images/dealer.png")">
         </div>
-        <button id="send-button" type="button" class="btn btn-primary">Send</button>
-    </form>
+        <div id="item-2">
+            <div id="message-content"></div>
+        </div>
+        <div id="item-3">
+            <form>
+                <textarea id="message-input" class="form-control" placeholder="type in 'hi' to start/restart the game"></textarea>
+                <div id="div-send-button">
+                    <button id="send-button" type="button" class="btn btn-primary">Send</button> 
+                </div> 
+            </form>
+        </div>
+        <div id="item-4">
+            <img src="@routes.Assets.versioned("images/player.png")">
+        </div>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -61,11 +71,11 @@
     }
 
     function appendClientMessageToView(title, message) {
-        $("#message-content-client").append("<span>" + title + ": " + message + "<br /></span>");
+        $("#message-content").append("<div class='server-message'>" + message + "◀︎</div>");
     }
 
     function appendServerMessageToView(title, message) {
-        $("#message-content-server").append("<span>" + title + ": " + message + "<br /><br /></span>");
+        $("#message-content").append("<div class='client-message'>►" + message + "</div>");
     }
 
     function consoleLog(message) {

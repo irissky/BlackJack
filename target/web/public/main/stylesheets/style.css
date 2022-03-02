@@ -1,0 +1,123 @@
+/* Broad site-wide styles */
+body {
+	background: #1f513b;
+	background: linear-gradient(to top right, #1f513b, #0F2725) fixed;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	color: white;
+}
+
+h1, h2, h3, h4, h5, .brand-logo {
+	font-family: 'Arvo', serif;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+h4 {
+	font-size: 1.75em;
+}
+
+p {
+	font-size: 1.25em;
+	line-height: 1.75em;
+}
+
+strong {
+	font-family: 'Arvo', serif;
+	padding: 4px 0;
+	display: block;
+	font-size: 1.10em;
+}
+
+
+button, button:focus {
+	margin: 5px;
+	padding: 10px 20px;
+	background: #d60438;
+	color: white;
+	font-size: 1.25em;
+	font-weight: 400;
+	letter-spacing: 1px;
+	border: 0;
+}
+
+button.secondary {
+	background: #1E6692;
+}
+
+button:active {
+	background: black;
+}
+
+button.disabled-button, button.secondary.disabled-button {
+	background: #0F2725;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* Rules */
+#rules {
+	padding: 30px 20px 20px 20px;
+	margin: 20px auto 30px auto;
+	text-align: left;
+	background: #0F2725;
+	font-size: .75em;
+}
+
+#content-container{
+	margin: 0 auto;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 20% 60% 20%;
+	grid-template-rows: 80% 20%;
+	grid-auto-flow: column dense;
+}
+
+#item-1 {
+	grid-row-start: 1;
+	grid-row-end: 3;  
+	text-align: right;
+}
+  
+#item-2, #item-3 {
+	align-items: center;
+}
+  
+#item-4 {
+	grid-row-start: 1;
+	grid-row-end: 3;  
+	text-align: left;
+}
+
+/* Card decks during gameplay */
+#message-content {
+	height: 300px;
+	overflow-y:auto !important;
+	background-color:#4f8a6f52;
+	padding:1em;
+	border-radius:10px;
+}
+
+.server-message {
+	text-align: right;
+}
+
+.client-message {
+	text-align: left;
+}
+
+#message-input {
+	width: 100%;
+	height: 45px;
+	font-size: 16px;
+	resize: none;
+}
+
+#div-send-button {
+	text-align: right;
+}

@@ -37,11 +37,17 @@ Seq[Any](format.raw/*8.1*/("""
         <link rel="stylesheet" media="screen" href=""""),_display_(/*14.54*/routes/*14.60*/.Assets.versioned("stylesheets/main.css")),format.raw/*14.101*/("""">
         <link rel="stylesheet" media="screen" href=""""),_display_(/*15.54*/routes/*15.60*/.Assets.versioned("stylesheets/bootstrap.min.css")),format.raw/*15.110*/("""">
         <link rel="shortcut icon" type="image/ico" href=""""),_display_(/*16.59*/routes/*16.65*/.Assets.versioned("images/favicon.ico")),format.raw/*16.104*/("""">
-        <title>"""),_display_(/*17.17*/title),format.raw/*17.22*/("""</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo:400,700|Lato">
+        <link rel="stylesheet" type="text/css" href=""""),_display_(/*22.55*/routes/*22.61*/.Assets.versioned("stylesheets/style.css")),format.raw/*22.103*/("""">
+        <title>"""),_display_(/*23.17*/title),format.raw/*23.22*/("""</title>
     </head>
     <body class="container" style="padding-top:3em;width:60%;background-color:#e9e9e9;">
-        """),_display_(/*20.10*/content),format.raw/*20.17*/("""
-        """),format.raw/*21.9*/("""<script src=""""),_display_(/*21.23*/routes/*21.29*/.Assets.versioned("javascripts/main.js")),format.raw/*21.69*/("""" type="text/javascript"></script>
+        """),_display_(/*26.10*/content),format.raw/*26.17*/("""
+        """),format.raw/*27.9*/("""<script src=""""),_display_(/*27.23*/routes/*27.29*/.Assets.versioned("javascripts/main.js")),format.raw/*27.69*/("""" type="text/javascript"></script>
     </body>
 </html>
 
@@ -64,11 +70,11 @@ Seq[Any](format.raw/*8.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2022-03-02T16:46:54.196
+                  DATE: 2022-03-02T18:48:05.323
                   SOURCE: /root/BlackJack/app/views/main.scala.html
-                  HASH: 7ecb9b63282e102fe5c434974ba582fa38ed9b1c
-                  MATRIX: 987->260|1111->291|1138->292|1388->515|1403->521|1466->562|1549->618|1564->624|1636->674|1724->735|1739->741|1800->780|1846->799|1872->804|2018->923|2046->930|2082->939|2123->953|2138->959|2199->999
-                  LINES: 26->7|31->8|32->9|37->14|37->14|37->14|38->15|38->15|38->15|39->16|39->16|39->16|40->17|40->17|43->20|43->20|44->21|44->21|44->21|44->21
+                  HASH: f3e4621488e6959631310a8665db870867fb85c9
+                  MATRIX: 987->260|1111->291|1138->292|1388->515|1403->521|1466->562|1549->618|1564->624|1636->674|1724->735|1739->741|1800->780|2438->1391|2453->1397|2517->1439|2563->1458|2589->1463|2735->1582|2763->1589|2799->1598|2840->1612|2855->1618|2916->1658
+                  LINES: 26->7|31->8|32->9|37->14|37->14|37->14|38->15|38->15|38->15|39->16|39->16|39->16|45->22|45->22|45->22|46->23|46->23|49->26|49->26|50->27|50->27|50->27|50->27
                   -- GENERATED --
               */
           
