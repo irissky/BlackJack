@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/IT5100A_proj/PlayFrameworkScalaWebSockets/conf/routes
-// @DATE:Sat Feb 26 06:42:37 GMT 2022
+// @SOURCE:/root/BlackJack/conf/routes
+// @DATE:Wed Mar 02 16:45:13 SGT 2022
 
 
 package router {

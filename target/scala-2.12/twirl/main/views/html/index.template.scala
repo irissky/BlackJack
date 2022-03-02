@@ -24,16 +24,19 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 
 
 Seq[Any](format.raw/*2.1*/("""
-"""),_display_(/*3.2*/main("Play WebSockets 101")/*3.29*/ {_display_(Seq[Any](format.raw/*3.31*/("""
+"""),_display_(/*3.2*/main("The Game of Twenty-One")/*3.32*/ {_display_(Seq[Any](format.raw/*3.34*/("""
 
-    """),format.raw/*5.5*/("""<h1 class="text-primary" style="font-size:24px;padding-bottom:1.5em;">Black Jack: <small>Hu Yue &amp; Hu Xuan</small></h1>
+    """),format.raw/*5.5*/("""<h1 class="text-primary" style="font-size:24px;padding-bottom:1.5em;">The Game of Twenty-One: <small>Hu Yue &amp; Hu Xuan</small></h1>
     <h6>IT5100A Final Project</h6>
-    <p>Welcome to the Single-user BlackJack game!</p>
+    <p>Welcome to the single-user game of 21 (also called Blackjack)!</p>
     <p>The game starts by dealing out two cards each to the player and dealer. A score of 21 wins the game for the player or dealer.</p>
     <p>In the event of a tie, the dealer wins. The user shall receive 100 coins at the beginning of the game.He can choose to bet any number of available coins at each hand. Once all the coins are exhausted, the game ends.The user can choose to "Hit" by entering a "H" when prompted. A "S" response would be assumed to be a "Stand".Good Luck!! </p>
     <h6 class="text-primary"> type in 'hi' to start the game </h2>
     <!-- this is where the client and server output will be shown/appended -->
-    <div id="message-content" style="height:230px;overflow-y:auto !important;background-color:#fff;padding:1em;border-radius:10px;"></div>
+    <h4>Dealer</h4>
+    <div id="message-content-server" style="height:230px;overflow-y:auto !important;background-color:#fff;padding:1em;border-radius:10px;"></div>
+    <h4>Player</h4>
+    <div id="message-content-client" style="height:230px;overflow-y:auto !important;background-color:#fff;padding:1em;border-radius:10px;"></div>
 
     <form style="padding-top:1.5em;">
         <div class="form-group">
@@ -49,109 +52,109 @@ Seq[Any](format.raw/*2.1*/("""
     var webSocket;
     var messageInput;
 
-    function init() """),format.raw/*28.21*/("""{"""),format.raw/*28.22*/("""
-        """),format.raw/*29.9*/("""webSocket = new WebSocket("ws://localhost:9000/ws");
+    function init() """),format.raw/*31.21*/("""{"""),format.raw/*31.22*/("""
+        """),format.raw/*32.9*/("""webSocket = new WebSocket("ws://localhost:9000/ws");
         webSocket.onopen = onOpen;
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;
         webSocket.onerror = onError;
         $("#message-input").focus();
-    """),format.raw/*35.5*/("""}"""),format.raw/*35.6*/("""
+    """),format.raw/*38.5*/("""}"""),format.raw/*38.6*/("""
 
-    """),format.raw/*37.5*/("""function onOpen(event) """),format.raw/*37.28*/("""{"""),format.raw/*37.29*/("""
-        """),format.raw/*38.9*/("""consoleLog("CONNECTED");
-    """),format.raw/*39.5*/("""}"""),format.raw/*39.6*/("""
+    """),format.raw/*40.5*/("""function onOpen(event) """),format.raw/*40.28*/("""{"""),format.raw/*40.29*/("""
+        """),format.raw/*41.9*/("""consoleLog("CONNECTED");
+    """),format.raw/*42.5*/("""}"""),format.raw/*42.6*/("""
 
-    """),format.raw/*41.5*/("""function onClose(event) """),format.raw/*41.29*/("""{"""),format.raw/*41.30*/("""
-        """),format.raw/*42.9*/("""consoleLog("DISCONNECTED");
+    """),format.raw/*44.5*/("""function onClose(event) """),format.raw/*44.29*/("""{"""),format.raw/*44.30*/("""
+        """),format.raw/*45.9*/("""consoleLog("DISCONNECTED");
         appendClientMessageToView(":", "DISCONNECTED");
-    """),format.raw/*44.5*/("""}"""),format.raw/*44.6*/("""
+    """),format.raw/*47.5*/("""}"""),format.raw/*47.6*/("""
 
-    """),format.raw/*46.5*/("""function onError(event) """),format.raw/*46.29*/("""{"""),format.raw/*46.30*/("""
-        """),format.raw/*47.9*/("""consoleLog("ERROR: " + event.data);
+    """),format.raw/*49.5*/("""function onError(event) """),format.raw/*49.29*/("""{"""),format.raw/*49.30*/("""
+        """),format.raw/*50.9*/("""consoleLog("ERROR: " + event.data);
         consoleLog("ERROR: " + JSON.stringify(event));
-    """),format.raw/*49.5*/("""}"""),format.raw/*49.6*/("""
+    """),format.raw/*52.5*/("""}"""),format.raw/*52.6*/("""
 
-    """),format.raw/*51.5*/("""function onMessage(event) """),format.raw/*51.31*/("""{"""),format.raw/*51.32*/("""
-        """),format.raw/*52.9*/("""console.log(event.data);
+    """),format.raw/*54.5*/("""function onMessage(event) """),format.raw/*54.31*/("""{"""),format.raw/*54.32*/("""
+        """),format.raw/*55.9*/("""console.log(event.data);
         let receivedData = JSON.parse(event.data);
         console.log("New Data: ", receivedData);
         // get the text from the "body" field of the json we
         // receive from the server.
         appendServerMessageToView("Server", receivedData.body);
-    """),format.raw/*58.5*/("""}"""),format.raw/*58.6*/("""
+    """),format.raw/*61.5*/("""}"""),format.raw/*61.6*/("""
 
-    """),format.raw/*60.5*/("""function appendClientMessageToView(title, message) """),format.raw/*60.56*/("""{"""),format.raw/*60.57*/("""
-        """),format.raw/*61.9*/("""$("#message-content").append("<span>" + title + ": " + message + "<br /></span>");
-    """),format.raw/*62.5*/("""}"""),format.raw/*62.6*/("""
+    """),format.raw/*63.5*/("""function appendClientMessageToView(title, message) """),format.raw/*63.56*/("""{"""),format.raw/*63.57*/("""
+        """),format.raw/*64.9*/("""$("#message-content-client").append("<span>" + title + ": " + message + "<br /></span>");
+    """),format.raw/*65.5*/("""}"""),format.raw/*65.6*/("""
 
-    """),format.raw/*64.5*/("""function appendServerMessageToView(title, message) """),format.raw/*64.56*/("""{"""),format.raw/*64.57*/("""
-        """),format.raw/*65.9*/("""$("#message-content").append("<span>" + title + ": " + message + "<br /><br /></span>");
-    """),format.raw/*66.5*/("""}"""),format.raw/*66.6*/("""
+    """),format.raw/*67.5*/("""function appendServerMessageToView(title, message) """),format.raw/*67.56*/("""{"""),format.raw/*67.57*/("""
+        """),format.raw/*68.9*/("""$("#message-content-server").append("<span>" + title + ": " + message + "<br /><br /></span>");
+    """),format.raw/*69.5*/("""}"""),format.raw/*69.6*/("""
 
-    """),format.raw/*68.5*/("""function consoleLog(message) """),format.raw/*68.34*/("""{"""),format.raw/*68.35*/("""
-        """),format.raw/*69.9*/("""console.log("New message: ", message);
-    """),format.raw/*70.5*/("""}"""),format.raw/*70.6*/("""
+    """),format.raw/*71.5*/("""function consoleLog(message) """),format.raw/*71.34*/("""{"""),format.raw/*71.35*/("""
+        """),format.raw/*72.9*/("""console.log("New message: ", message);
+    """),format.raw/*73.5*/("""}"""),format.raw/*73.6*/("""
 
-    """),format.raw/*72.5*/("""window.addEventListener("load", init, false);
+    """),format.raw/*75.5*/("""window.addEventListener("load", init, false);
 
-    $("#send-button").click(function (e) """),format.raw/*74.42*/("""{"""),format.raw/*74.43*/("""
-        """),format.raw/*75.9*/("""console.log("Sending ...");
+    $("#send-button").click(function (e) """),format.raw/*77.42*/("""{"""),format.raw/*77.43*/("""
+        """),format.raw/*78.9*/("""console.log("Sending ...");
         getMessageAndSendToServer();
         // put focus back in the textarea
         $("#message-input").focus();
-    """),format.raw/*79.5*/("""}"""),format.raw/*79.6*/(""");
+    """),format.raw/*82.5*/("""}"""),format.raw/*82.6*/(""");
 
     // send the message when the user presses the <enter> key while in the textarea
-    $(window).on("keydown", function (e) """),format.raw/*82.42*/("""{"""),format.raw/*82.43*/("""
-        """),format.raw/*83.9*/("""if (e.which == 13) """),format.raw/*83.28*/("""{"""),format.raw/*83.29*/("""
-            """),format.raw/*84.13*/("""getMessageAndSendToServer();
+    $(window).on("keydown", function (e) """),format.raw/*85.42*/("""{"""),format.raw/*85.43*/("""
+        """),format.raw/*86.9*/("""if (e.which == 13) """),format.raw/*86.28*/("""{"""),format.raw/*86.29*/("""
+            """),format.raw/*87.13*/("""getMessageAndSendToServer();
             return false;
-        """),format.raw/*86.9*/("""}"""),format.raw/*86.10*/("""
-    """),format.raw/*87.5*/("""}"""),format.raw/*87.6*/(""");
+        """),format.raw/*89.9*/("""}"""),format.raw/*89.10*/("""
+    """),format.raw/*90.5*/("""}"""),format.raw/*90.6*/(""");
 
     // there’s a lot going on here:
     // 1. get our message from the textarea.
     // 2. append that message to our view/div.
     // 3. create a json version of the message.
     // 4. send the message to the server.
-    function getMessageAndSendToServer() """),format.raw/*94.42*/("""{"""),format.raw/*94.43*/("""
+    function getMessageAndSendToServer() """),format.raw/*97.42*/("""{"""),format.raw/*97.43*/("""
 
-        """),format.raw/*96.9*/("""// get the text from the textarea
+        """),format.raw/*99.9*/("""// get the text from the textarea
         messageInput = $("#message-input").val();
 
         // clear the textarea
         $("#message-input").val("");
 
         // if the trimmed message was blank, return now
-        if ($.trim(messageInput) == "") """),format.raw/*103.41*/("""{"""),format.raw/*103.42*/("""
-            """),format.raw/*104.13*/("""return false;
-        """),format.raw/*105.9*/("""}"""),format.raw/*105.10*/("""
+        if ($.trim(messageInput) == "") """),format.raw/*106.41*/("""{"""),format.raw/*106.42*/("""
+            """),format.raw/*107.13*/("""return false;
+        """),format.raw/*108.9*/("""}"""),format.raw/*108.10*/("""
 
-        """),format.raw/*107.9*/("""// add the message to the view/div
+        """),format.raw/*110.9*/("""// add the message to the view/div
         appendClientMessageToView("Me", messageInput);
 
         // create the message as json
-        let jsonMessage = """),format.raw/*111.27*/("""{"""),format.raw/*111.28*/("""
-            """),format.raw/*112.13*/("""message: messageInput
-        """),format.raw/*113.9*/("""}"""),format.raw/*113.10*/(""";
+        let jsonMessage = """),format.raw/*114.27*/("""{"""),format.raw/*114.28*/("""
+            """),format.raw/*115.13*/("""message: messageInput
+        """),format.raw/*116.9*/("""}"""),format.raw/*116.10*/(""";
 
         // send our json message to the server
         sendToServer(jsonMessage);
-    """),format.raw/*117.5*/("""}"""),format.raw/*117.6*/("""
+    """),format.raw/*120.5*/("""}"""),format.raw/*120.6*/("""
 
-    """),format.raw/*119.5*/("""// send the data to the server using the WebSocket
-    function sendToServer(jsonMessage) """),format.raw/*120.40*/("""{"""),format.raw/*120.41*/("""
-        """),format.raw/*121.9*/("""if(webSocket.readyState == WebSocket.OPEN) """),format.raw/*121.52*/("""{"""),format.raw/*121.53*/("""
-            """),format.raw/*122.13*/("""consoleLog("SENT: " + jsonMessage.message);
+    """),format.raw/*122.5*/("""// send the data to the server using the WebSocket
+    function sendToServer(jsonMessage) """),format.raw/*123.40*/("""{"""),format.raw/*123.41*/("""
+        """),format.raw/*124.9*/("""if(webSocket.readyState == WebSocket.OPEN) """),format.raw/*124.52*/("""{"""),format.raw/*124.53*/("""
+            """),format.raw/*125.13*/("""consoleLog("SENT: " + jsonMessage.message);
             webSocket.send(JSON.stringify(jsonMessage));
-        """),format.raw/*124.9*/("""}"""),format.raw/*124.10*/(""" """),format.raw/*124.11*/("""else """),format.raw/*124.16*/("""{"""),format.raw/*124.17*/("""
-            """),format.raw/*125.13*/("""consoleLog("Could not send data. Websocket is not open.");
-        """),format.raw/*126.9*/("""}"""),format.raw/*126.10*/("""
-    """),format.raw/*127.5*/("""}"""),format.raw/*127.6*/("""
+        """),format.raw/*127.9*/("""}"""),format.raw/*127.10*/(""" """),format.raw/*127.11*/("""else """),format.raw/*127.16*/("""{"""),format.raw/*127.17*/("""
+            """),format.raw/*128.13*/("""consoleLog("Could not send data. Websocket is not open.");
+        """),format.raw/*129.9*/("""}"""),format.raw/*129.10*/("""
+    """),format.raw/*130.5*/("""}"""),format.raw/*130.6*/("""
 
-    """),format.raw/*129.5*/("""</script>
-""")))}),format.raw/*130.2*/("""
+    """),format.raw/*132.5*/("""</script>
+""")))}),format.raw/*133.2*/("""
 """))
       }
     }
@@ -168,11 +171,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2022-02-26T14:07:45.700
-                  SOURCE: /IT5100A_proj/PlayFrameworkScalaWebSockets/app/views/index.scala.html
-                  HASH: 94adabe7ee48377294be5aa131a2f723a9d21768
-                  MATRIX: 722->1|818->4|845->6|880->33|919->35|951->41|2426->1488|2455->1489|2491->1498|2762->1742|2790->1743|2823->1749|2874->1772|2903->1773|2939->1782|2995->1811|3023->1812|3056->1818|3108->1842|3137->1843|3173->1852|3288->1940|3316->1941|3349->1947|3401->1971|3430->1972|3466->1981|3588->2076|3616->2077|3649->2083|3703->2109|3732->2110|3768->2119|4085->2409|4113->2410|4146->2416|4225->2467|4254->2468|4290->2477|4404->2564|4432->2565|4465->2571|4544->2622|4573->2623|4609->2632|4729->2725|4757->2726|4790->2732|4847->2761|4876->2762|4912->2771|4982->2814|5010->2815|5043->2821|5159->2909|5188->2910|5224->2919|5399->3067|5427->3068|5584->3197|5613->3198|5649->3207|5696->3226|5725->3227|5766->3240|5856->3303|5885->3304|5917->3309|5945->3310|6236->3573|6265->3574|6302->3584|6580->3833|6610->3834|6652->3847|6702->3869|6732->3870|6770->3880|6954->4035|6984->4036|7026->4049|7084->4079|7114->4080|7231->4169|7260->4170|7294->4176|7413->4266|7443->4267|7480->4276|7552->4319|7582->4320|7624->4333|7761->4442|7791->4443|7821->4444|7855->4449|7885->4450|7927->4463|8022->4530|8052->4531|8085->4536|8114->4537|8148->4543|8190->4554
-                  LINES: 21->1|26->2|27->3|27->3|27->3|29->5|52->28|52->28|53->29|59->35|59->35|61->37|61->37|61->37|62->38|63->39|63->39|65->41|65->41|65->41|66->42|68->44|68->44|70->46|70->46|70->46|71->47|73->49|73->49|75->51|75->51|75->51|76->52|82->58|82->58|84->60|84->60|84->60|85->61|86->62|86->62|88->64|88->64|88->64|89->65|90->66|90->66|92->68|92->68|92->68|93->69|94->70|94->70|96->72|98->74|98->74|99->75|103->79|103->79|106->82|106->82|107->83|107->83|107->83|108->84|110->86|110->86|111->87|111->87|118->94|118->94|120->96|127->103|127->103|128->104|129->105|129->105|131->107|135->111|135->111|136->112|137->113|137->113|141->117|141->117|143->119|144->120|144->120|145->121|145->121|145->121|146->122|148->124|148->124|148->124|148->124|148->124|149->125|150->126|150->126|151->127|151->127|153->129|154->130
+                  DATE: 2022-03-02T16:50:31.919
+                  SOURCE: /root/BlackJack/app/views/index.scala.html
+                  HASH: 5a55d45c09f1c3a788e80800d53fbc72ff2d6aec
+                  MATRIX: 722->1|818->4|845->6|883->36|922->38|954->44|2654->1716|2683->1717|2719->1726|2990->1970|3018->1971|3051->1977|3102->2000|3131->2001|3167->2010|3223->2039|3251->2040|3284->2046|3336->2070|3365->2071|3401->2080|3516->2168|3544->2169|3577->2175|3629->2199|3658->2200|3694->2209|3816->2304|3844->2305|3877->2311|3931->2337|3960->2338|3996->2347|4313->2637|4341->2638|4374->2644|4453->2695|4482->2696|4518->2705|4639->2799|4667->2800|4700->2806|4779->2857|4808->2858|4844->2867|4971->2967|4999->2968|5032->2974|5089->3003|5118->3004|5154->3013|5224->3056|5252->3057|5285->3063|5401->3151|5430->3152|5466->3161|5641->3309|5669->3310|5826->3439|5855->3440|5891->3449|5938->3468|5967->3469|6008->3482|6098->3545|6127->3546|6159->3551|6187->3552|6478->3815|6507->3816|6544->3826|6822->4075|6852->4076|6894->4089|6944->4111|6974->4112|7012->4122|7196->4277|7226->4278|7268->4291|7326->4321|7356->4322|7473->4411|7502->4412|7536->4418|7655->4508|7685->4509|7722->4518|7794->4561|7824->4562|7866->4575|8003->4684|8033->4685|8063->4686|8097->4691|8127->4692|8169->4705|8264->4772|8294->4773|8327->4778|8356->4779|8390->4785|8432->4796
+                  LINES: 21->1|26->2|27->3|27->3|27->3|29->5|55->31|55->31|56->32|62->38|62->38|64->40|64->40|64->40|65->41|66->42|66->42|68->44|68->44|68->44|69->45|71->47|71->47|73->49|73->49|73->49|74->50|76->52|76->52|78->54|78->54|78->54|79->55|85->61|85->61|87->63|87->63|87->63|88->64|89->65|89->65|91->67|91->67|91->67|92->68|93->69|93->69|95->71|95->71|95->71|96->72|97->73|97->73|99->75|101->77|101->77|102->78|106->82|106->82|109->85|109->85|110->86|110->86|110->86|111->87|113->89|113->89|114->90|114->90|121->97|121->97|123->99|130->106|130->106|131->107|132->108|132->108|134->110|138->114|138->114|139->115|140->116|140->116|144->120|144->120|146->122|147->123|147->123|148->124|148->124|148->124|149->125|151->127|151->127|151->127|151->127|151->127|152->128|153->129|153->129|154->130|154->130|156->132|157->133
                   -- GENERATED --
               */
           

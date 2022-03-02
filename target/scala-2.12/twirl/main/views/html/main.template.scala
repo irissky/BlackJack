@@ -36,7 +36,7 @@ Seq[Any](format.raw/*8.1*/("""
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" media="screen" href=""""),_display_(/*14.54*/routes/*14.60*/.Assets.versioned("stylesheets/main.css")),format.raw/*14.101*/("""">
         <link rel="stylesheet" media="screen" href=""""),_display_(/*15.54*/routes/*15.60*/.Assets.versioned("stylesheets/bootstrap.min.css")),format.raw/*15.110*/("""">
-        <link rel="shortcut icon" type="image/png" href=""""),_display_(/*16.59*/routes/*16.65*/.Assets.versioned("images/favicon.png")),format.raw/*16.104*/("""">
+        <link rel="shortcut icon" type="image/ico" href=""""),_display_(/*16.59*/routes/*16.65*/.Assets.versioned("images/favicon.ico")),format.raw/*16.104*/("""">
         <title>"""),_display_(/*17.17*/title),format.raw/*17.22*/("""</title>
     </head>
     <body class="container" style="padding-top:3em;width:60%;background-color:#e9e9e9;">
@@ -64,9 +64,9 @@ Seq[Any](format.raw/*8.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2022-02-26T06:42:38.025
-                  SOURCE: /IT5100A_proj/PlayFrameworkScalaWebSockets/app/views/main.scala.html
-                  HASH: 7ee12ecda23c56515377f5284fae628676398680
+                  DATE: 2022-03-02T16:46:54.196
+                  SOURCE: /root/BlackJack/app/views/main.scala.html
+                  HASH: 7ecb9b63282e102fe5c434974ba582fa38ed9b1c
                   MATRIX: 987->260|1111->291|1138->292|1388->515|1403->521|1466->562|1549->618|1564->624|1636->674|1724->735|1739->741|1800->780|1846->799|1872->804|2018->923|2046->930|2082->939|2123->953|2138->959|2199->999
                   LINES: 26->7|31->8|32->9|37->14|37->14|37->14|38->15|38->15|38->15|39->16|39->16|39->16|40->17|40->17|43->20|43->20|44->21|44->21|44->21|44->21
                   -- GENERATED --
